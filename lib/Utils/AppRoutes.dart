@@ -4,6 +4,8 @@ import 'package:alkebulan/App%20Screeens/Home/HomeScreen.dart';
 import 'package:alkebulan/App%20Screeens/OnBoarding/OnBoarding2.dart';
 import 'package:alkebulan/App%20Screeens/OnBoarding/Onboarding1.dart';
 import 'package:alkebulan/App%20Screeens/OnBoarding/PaymentScreen.dart';
+import 'package:alkebulan/Common%20Components/BottomBar.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -12,7 +14,7 @@ class AppRoutes {
   static const String onboarding3 = '/onboarding3';
 
   static const String RFA = '/RFA';
-  static const String login = '/login';
+  static const String bnb = '/bnb';
   static const String signup = '/signup';
   static const String home = '/home';
 
@@ -31,7 +33,7 @@ class AppRoutes {
     ),
     GetPage(name: signup, page: () => SignUpScreen()),
     GetPage(name: RFA, page: () => ReferFriendScreen()),
-    // GetPage(name: onboarding, page: () => OnboardingScreen()),
+    GetPage(name: bnb, page: () => DBNBPage()),
     GetPage(name: home, page: () => HomeScreen()),
   ];
 }

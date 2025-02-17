@@ -30,39 +30,37 @@ class PostCard extends StatelessWidget {
           if (isFeatured)
             Container(
               width: double.infinity,
-              height: screenHeight * 0.25,
+              height: screenHeight * 0.24,
+              padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.01,
+                  horizontal: screenWidth * 0.05),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
                 image: DecorationImage(
-                  image: NetworkImage(imageUrl),
-                  fit: BoxFit.cover,
+                  image: AssetImage(imageUrl),
+                  // NetworkImage(imageUrl),
+                  fit: BoxFit.fill,
                 ),
               ),
-              child: Container(
-                padding: EdgeInsets.all(screenWidth * 0.04),
-                alignment: Alignment.bottomLeft,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  gradient: LinearGradient(
-                    colors: [Colors.black.withOpacity(0.7), Colors.transparent],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.045,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                child: Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: screenWidth * 0.045,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                ],
               ),
             ),
 
           if (!isFeatured) ...[
             Padding(
-              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.008),
+              padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.008,
+                  horizontal: screenWidth * 0.05),
               child: Text(
                 category.toUpperCase(),
                 style: TextStyle(
@@ -72,54 +70,57 @@ class PostCard extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Thumbnail Image
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    imageUrl,
-                    width: screenWidth * 0.25,
-                    height: screenHeight * 0.1,
-                    fit: BoxFit.cover,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Thumbnail Image
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.asset(
+                      imageUrl,
+                      width: screenWidth * 0.25,
+                      height: screenHeight * 0.1,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.03),
-                // Post Info
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  SizedBox(width: screenWidth * 0.03),
+                  // Post Info
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.04,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(height: screenHeight * 0.005),
+                        Text(
+                          timeAgo,
+                          style: TextStyle(
+                            fontSize: screenWidth * 0.03,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Bookmark and Play Icon
+                  Column(
                     children: [
-                      Text(
-                        title,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.04,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.005),
-                      Text(
-                        timeAgo,
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.03,
-                          color: Colors.grey,
-                        ),
-                      ),
+                      Icon(Icons.play_circle_outline, color: Colors.black),
+                      SizedBox(height: screenHeight * 0.01),
+                      Icon(Icons.bookmark_border, color: Colors.black),
                     ],
                   ),
-                ),
-                // Bookmark and Play Icon
-                Column(
-                  children: [
-                    Icon(Icons.play_circle_outline, color: Colors.black),
-                    SizedBox(height: screenHeight * 0.01),
-                    Icon(Icons.bookmark_border, color: Colors.black),
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ],
