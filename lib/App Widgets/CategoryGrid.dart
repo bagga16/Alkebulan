@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 
 class CategoryGrid extends StatelessWidget {
   final List<Map<String, String>> categories = [
-    {"title": "Trending", "image": "assets/images/trending.jpg"},
-    {"title": "Business", "image": "assets/images/business.jpg"},
-    {"title": "Entertainment", "image": "assets/images/entertainment.jpg"},
-    {"title": "Technology", "image": "assets/images/technology.jpg"},
+    {"title": "Trending", "image": "assets/images/post.png"},
+    {"title": "Business", "image": "assets/images/post.png"},
+    {"title": "Entertainment", "image": "assets/images/post1.png"},
+    {"title": "Technology", "image": "assets/images/post.png"},
+    {"title": "Travel", "image": "assets/images/post.png"},
+    {"title": "Ploitics", "image": "assets/images/post.png"},
+    {"title": "Health & Wellness", "image": "assets/images/post1.png"},
+    {"title": "Insights", "image": "assets/images/post.png"},
   ];
 
   @override
@@ -39,7 +43,7 @@ class CategoryGrid extends StatelessWidget {
             itemBuilder: (context, index) {
               return Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(5),
                   image: DecorationImage(
                     image: AssetImage(categories[index]["image"]!),
                     fit: BoxFit.cover,
@@ -47,16 +51,20 @@ class CategoryGrid extends StatelessWidget {
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: Colors.black.withOpacity(0.3),
+                    borderRadius: BorderRadius.circular(5),
+                    // color: Color.fromRGBO(255, 236, 137, 0.5).withOpacity(0.2),
                   ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    categories[index]["title"]!,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: screenWidth * 0.045,
-                      fontWeight: FontWeight.bold,
+                  alignment: Alignment.bottomLeft,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        left: screenWidth * 0.04, bottom: screenWidth * 0.027),
+                    child: Text(
+                      categories[index]["title"]!,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: screenWidth * 0.04,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),

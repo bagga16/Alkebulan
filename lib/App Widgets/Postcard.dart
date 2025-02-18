@@ -85,10 +85,12 @@ class _PostCardState extends State<PostCard> {
                 // Standard Layouts
                 if (widget.isForYou)
                   _buildForYouLayout(screenWidth, screenHeight)
-                else if (widget.isEconomics || widget.isInsight)
+                else if (widget.isEconomics)
                   _buildEconomicsLayout(screenWidth, screenHeight)
+                else if (widget.isInsight)
+                  _buildInsightLayout(screenWidth, screenHeight)
                 else
-                  _buildEconomicsLayout(screenWidth, screenHeight),
+                  _buildInsightLayout(screenWidth, screenHeight),
               ],
             ],
           ),
@@ -129,65 +131,6 @@ class _PostCardState extends State<PostCard> {
       ),
     );
   }
-
-  // // Standard Post Layout
-  // Widget _buildStandardLayout(double screenWidth, double screenHeight) {
-  //   return Padding(
-  //     padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
-  //     child: Row(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: [
-  //         ClipRRect(
-  //           borderRadius: BorderRadius.circular(6),
-  //           child: Image.asset(
-  //             widget.imageUrl,
-  //             width: screenWidth * 0.25,
-  //             height: screenHeight * 0.1,
-  //             fit: BoxFit.cover,
-  //           ),
-  //         ),
-  //         SizedBox(width: screenWidth * 0.03),
-  //         Expanded(
-  //           child: Column(
-  //             crossAxisAlignment: CrossAxisAlignment.start,
-  //             children: [
-  //               Text(
-  //                 widget.title,
-  //                 maxLines: 2,
-  //                 overflow: TextOverflow.ellipsis,
-  //                 style: TextStyle(
-  //                   fontSize: screenWidth * 0.04,
-  //                   fontWeight: FontWeight.bold,
-  //                 ),
-  //               ),
-  //               SizedBox(height: screenHeight * 0.005),
-  //               Text(
-  //                 widget.timeAgo,
-  //                 style: TextStyle(
-  //                   fontSize: screenWidth * 0.03,
-  //                   color: Colors.grey,
-  //                 ),
-  //               ),
-  //             ],
-  //           ),
-  //         ),
-  //         Column(
-  //           children: [
-  //             Icon(Icons.play_circle_outline, color: Colors.black),
-  //             SizedBox(height: screenHeight * 0.01),
-  //             GestureDetector(
-  //               onTap: toggleFavorite,
-  //               child: Icon(
-  //                 isFavorite ? Icons.bookmark : Icons.bookmark_border,
-  //                 color: isFavorite ? Colors.blueAccent : Colors.black,
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
 
   // // "For You" Layout
   Widget _buildForYouLayout(double screenWidth, double screenHeight) {
@@ -317,6 +260,83 @@ class _PostCardState extends State<PostCard> {
                 child: Icon(
                   isFavorite ? Icons.bookmark : Icons.bookmark_border,
                   color: isFavorite ? Colors.blueAccent : Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  // // "For You" Layout
+  Widget _buildInsightLayout(double screenWidth, double screenHeight) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Text(
+                  widget.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.04,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.asset(
+                  widget.imageUrl,
+                  width: screenWidth * 0.23,
+                  height: screenHeight * 0.08,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CircleAvatar(
+                radius: screenWidth * 0.04,
+                backgroundImage: AssetImage(widget.profileImageUrl ?? ""),
+              ),
+              SizedBox(width: screenWidth * 0.02),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.username ?? "bagga",
+                    style: TextStyle(
+                      color: Color.fromRGBO(86, 86, 86, 1),
+                      fontSize: screenWidth * 0.035,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    widget.timeAgo,
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.03,
+                      color: Color.fromRGBO(86, 86, 86, 1),
+                    ),
+                  ),
+                ],
+              ),
+              Spacer(),
+              GestureDetector(
+                onTap: () {
+                  toggleFavorite();
+                },
+                child: Icon(
+                  isFavorite ? Icons.bookmark : Icons.bookmark_border,
+                  color: isFavorite ? Colors.blueAccent : Colors.black,
+                  size: 20,
                 ),
               ),
             ],

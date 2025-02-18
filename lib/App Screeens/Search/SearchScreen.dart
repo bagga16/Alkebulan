@@ -14,7 +14,7 @@ class SearchScreen extends StatelessWidget {
       body: SafeArea(
         child: ListView(
           children: [
-            SizedBox(height: screenHeight * 0.04),
+            SizedBox(height: screenHeight * 0.038),
 
             // Search Bar
             SearchBarWidget(),
@@ -26,6 +26,7 @@ class SearchScreen extends StatelessWidget {
 
             // Categories Grid
             CategoryGrid(),
+            SizedBox(height: screenHeight * 0.15),
           ],
         ),
       ),

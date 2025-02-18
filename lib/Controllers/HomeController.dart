@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   var selectedTab = 0.obs;
-  var selectedDay = 0.obs;
+  var selectedDay = 1.obs;
 
   List<String> weekdays = ["M", "T", "W", "T", "F", "S", "S"];
 
@@ -72,7 +72,8 @@ class HomeController extends GetxController {
       "imageUrl": "assets/images/post.png",
       "timeAgo": "4d ago",
       "username": "Kwame Assoku",
-      "profileImageUrl": "assets/users/user1.png",
+      "isInsight": true,
+      "profileImageUrl": "assets/images/user1.png",
     },
     {
       "category": "INSIGHTS",
@@ -80,7 +81,17 @@ class HomeController extends GetxController {
       "imageUrl": "assets/images/post1.png",
       "timeAgo": "2h",
       "username": "Ahmad",
-      "profileImageUrl": "assets/users/user2.png",
+      "isInsight": true,
+      "profileImageUrl": "assets/images/user2.png",
+    },
+    {
+      "category": "INSIGHTS",
+      "title": "Aid but no peace: humanitarian action in northern Uganda",
+      "imageUrl": "assets/images/post1.png",
+      "timeAgo": "2h",
+      "username": "Ahmad",
+      "isInsight": true,
+      "profileImageUrl": "assets/images/user2.png",
     },
   ];
 }

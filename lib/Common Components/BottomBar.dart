@@ -39,7 +39,7 @@ class _DBNBPageState extends State<DBNBPage> {
               child: _pages[selectedIndex],
             ),
             Positioned(
-              bottom: screenHeight * 0.01,
+              bottom: screenHeight * 0.008,
               left: 0,
               right: 0,
               child: Column(
