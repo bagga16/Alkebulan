@@ -1,3 +1,4 @@
+import 'package:alkebulan/App%20Widgets/LiveTV_Player.dart';
 import 'package:alkebulan/App%20Widgets/ReelsVideoPlayer.dart';
 import 'package:alkebulan/Controllers/ReelsController.dart';
 import 'package:flutter/material.dart';
@@ -36,14 +37,28 @@ class ReelsScreen extends StatelessWidget {
 
             // Video Scrolling
             Expanded(
-              child: PageView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: controller.videos.length,
-                itemBuilder: (context, index) {
-                  return VideoPlayerWidget(video: controller.videos[index]);
-                },
-              ),
+              child: Obx(() {
+                return controller.selectedTab.value == 0
+                    ? PageView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: controller.videos.length,
+                        itemBuilder: (context, index) {
+                          return VideoPlayerWidget(
+                              video: controller.videos[index]);
+                        },
+                      )
+                    : LiveTVPlayer();
+              }),
             ),
+            // Expanded(
+            //   child: PageView.builder(
+            //     scrollDirection: Axis.vertical,
+            //     itemCount: controller.videos.length,
+            //     itemBuilder: (context, index) {
+            //       return VideoPlayerWidget(video: controller.videos[index]);
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),

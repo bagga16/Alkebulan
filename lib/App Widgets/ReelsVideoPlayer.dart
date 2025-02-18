@@ -1,6 +1,7 @@
 import 'package:alkebulan/Common%20Components/CommonButton.dart';
 import 'package:alkebulan/Models/ReelsModel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -125,7 +126,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       },
       child: Column(
         children: [
-          Icon(Icons.comment, color: Colors.white, size: 30),
+          Image.asset('assets/icons/comment.png'),
+          // Icon(Icons.comment, color: Colors.white, size: 30),
           Text(
             "${widget.video.comments}",
             style: TextStyle(color: Colors.white, fontSize: 14),
@@ -142,7 +144,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
       },
       child: Column(
         children: [
-          Icon(Icons.share, color: Colors.white, size: 30),
+          Image.asset('assets/icons/share.png'),
+          //  Icon(Icons.share, color: Colors.white, size: 30),
           Text(
             "${widget.video.shares}",
             style: TextStyle(color: Colors.white, fontSize: 14),
