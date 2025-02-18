@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       //     ),
       //   ),
       // ),
-      initialRoute: AppRoutes.onboarding1,
+      initialRoute: AppRoutes.bnb,
       getPages: AppRoutes.routes,
     );
   }

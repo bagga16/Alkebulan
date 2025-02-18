@@ -2,6 +2,7 @@
 
 import 'package:alkebulan/App%20Screeens/Home/HomeScreen.dart';
 import 'package:alkebulan/App%20Screeens/Reels/Reels%20Screen.dart';
+import 'package:alkebulan/App%20Screeens/Search/SearchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class _DBNBPageState extends State<DBNBPage> {
 
   final _pages = [
     HomeScreen(),
-    ReelsScreen(),
+    SearchScreen(),
     ReelsScreen(),
     ReelsScreen(),
   ];
