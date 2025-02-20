@@ -1,7 +1,6 @@
 import 'package:alkebulan/Common%20Components/CommonButton.dart';
 import 'package:alkebulan/Models/ReelsModel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 

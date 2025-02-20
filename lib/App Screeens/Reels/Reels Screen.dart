@@ -1,5 +1,6 @@
 import 'package:alkebulan/App%20Widgets/LiveTV_Player.dart';
 import 'package:alkebulan/App%20Widgets/ReelsVideoPlayer.dart';
+import 'package:alkebulan/Controllers/LiveTV_Controller.dart';
 import 'package:alkebulan/Controllers/ReelsController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 class ReelsScreen extends StatelessWidget {
   final ReelsController controller = Get.put(ReelsController());
 
+  final LiveTVController liveTVController = Get.put(LiveTVController());
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -47,18 +49,18 @@ class ReelsScreen extends StatelessWidget {
                               video: controller.videos[index]);
                         },
                       )
-                    : LiveTVPlayer();
+                    : PageView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: liveTVController.liveVideos.length,
+                        onPageChanged: (index) {
+                          liveTVController.switchVideo(index);
+                        },
+                        itemBuilder: (context, index) {
+                          return LiveTVPlayer();
+                        },
+                      );
               }),
             ),
-            // Expanded(
-            //   child: PageView.builder(
-            //     scrollDirection: Axis.vertical,
-            //     itemCount: controller.videos.length,
-            //     itemBuilder: (context, index) {
-            //       return VideoPlayerWidget(video: controller.videos[index]);
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -3,9 +3,9 @@
 import 'package:alkebulan/App%20Screeens/Home/HomeScreen.dart';
 import 'package:alkebulan/App%20Screeens/Reels/Reels%20Screen.dart';
 import 'package:alkebulan/App%20Screeens/Search/SearchScreen.dart';
+import 'package:alkebulan/App%20Screeens/User%20Profile%20&%20Settings/UserProfileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 
 class DBNBPage extends StatefulWidget {
   const DBNBPage({super.key});
@@ -21,7 +21,7 @@ class _DBNBPageState extends State<DBNBPage> {
     HomeScreen(),
     SearchScreen(),
     ReelsScreen(),
-    ReelsScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
