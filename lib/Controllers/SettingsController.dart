@@ -48,10 +48,9 @@ class SettingsController extends GetxController {
       content: Text("Are you sure you want to log out?"),
       textConfirm: "Yes",
       textCancel: "Cancel",
-      buttonColor: Colors.blue,
+      buttonColor: Colors.red,
       confirmTextColor: Colors.white,
       onConfirm: () {
-        // Perform logout action
         Get.back();
       },
     );

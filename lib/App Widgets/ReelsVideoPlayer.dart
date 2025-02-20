@@ -1,4 +1,6 @@
+import 'package:alkebulan/App%20Widgets/CommentBottomSheet.dart';
 import 'package:alkebulan/Common%20Components/CommonButton.dart';
+import 'package:alkebulan/Controllers/CommentController.dart';
 import 'package:alkebulan/Models/ReelsModel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +15,7 @@ class VideoPlayerWidget extends StatefulWidget {
 }
 
 class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  final CommentController commentController = Get.put(CommentController());
   late VideoPlayerController _controller;
   bool isLiked = false;
 
@@ -121,12 +124,12 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
   Widget _buildCommentIcon() {
     return GestureDetector(
       onTap: () {
-        _showBottomSheet("Comments", "People's comments go here...");
+        commentController.loadComments(1); // Load comments for the reel
+        Get.bottomSheet(CommentBottomSheet());
       },
       child: Column(
         children: [
-          Image.asset('assets/icons/comment.png'),
-          // Icon(Icons.comment, color: Colors.white, size: 30),
+          Icon(Icons.comment, color: Colors.white, size: 30),
           Text(
             "${widget.video.comments}",
             style: TextStyle(color: Colors.white, fontSize: 14),
