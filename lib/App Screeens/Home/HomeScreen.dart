@@ -1,13 +1,16 @@
+import 'package:alkebulan/App%20Screeens/Home/PostDetails/PostDetailsScreen.dart';
 import 'package:alkebulan/App%20Widgets/FeaturedUsers.dart';
 import 'package:alkebulan/App%20Widgets/HomeTabBar.dart';
 import 'package:alkebulan/App%20Widgets/Postcard.dart';
 import 'package:alkebulan/Controllers/HomeController.dart';
+import 'package:alkebulan/Controllers/PostController.dart';
+import 'package:alkebulan/Models/PostModel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
   final HomeController controller = Get.put(HomeController());
-
+  final PostController postController = Get.put(PostController());
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -79,10 +82,11 @@ class HomeScreen extends StatelessWidget {
 
             SizedBox(height: screenHeight * 0.01),
 
-            // Posts List (Explore or Insights)
             Expanded(
               child: Obx(
                 () => ListView.builder(
+                  shrinkWrap: true, // Prevents infinite height issue
+                  physics: BouncingScrollPhysics(), // Smooth scrolling
                   itemCount: controller.selectedTab.value == 0
                       ? controller.explorePosts.length
                       : controller.insightsPosts.length,
@@ -91,21 +95,91 @@ class HomeScreen extends StatelessWidget {
                         ? controller.explorePosts[index]
                         : controller.insightsPosts[index];
 
-                    return PostCard(
-                      category: post["category"],
-                      title: post["title"],
-                      imageUrl: post["imageUrl"],
-                      timeAgo: post["timeAgo"],
-                      isFeatured: post["isFeatured"] ?? false,
-                      isForYou: post["isForYou"] ?? false,
-                      isEconomics: post["isEconomics"] ?? false,
-                      profileImageUrl: post["profileImageUrl"],
-                      username: post["username"],
+                    return GestureDetector(
+                      onTap: () {
+                        final postModel = PostModel(
+                          category: post["category"] ?? "",
+                          title: post["title"] ?? "",
+                          imageUrl: post["imageUrl"] ?? "",
+                          timeAgo: post["timeAgo"] ?? "",
+                          isFeatured: post["isFeatured"] ?? false,
+                          isForYou: post["isForYou"] ?? false,
+                          isEconomics: post["isEconomics"] ?? false,
+                          profileImageUrl: post["profileImageUrl"] ?? "",
+                          username: post["username"] ?? "",
+                        );
+
+                        postController.setPost(postModel);
+                        Get.to(() => PostDetailScreen());
+                      },
+                      child: PostCard(
+                        category: post["category"],
+                        title: post["title"],
+                        imageUrl: post["imageUrl"],
+                        timeAgo: post["timeAgo"],
+                        isFeatured: post["isFeatured"] ?? false,
+                        isForYou: post["isForYou"] ?? false,
+                        isEconomics: post["isEconomics"] ?? false,
+                        profileImageUrl: post["profileImageUrl"],
+                        username: post["username"],
+                      ),
                     );
                   },
                 ),
               ),
             ),
+
+            // // Posts List (Explore or Insights)
+            // Expanded(
+            //   child: Obx(
+            //     () => ListView.builder(
+            //       itemCount: controller.selectedTab.value == 0
+            //           ? controller.explorePosts.length
+            //           : controller.insightsPosts.length,
+            //       itemBuilder: (context, index) {
+            //         final post = controller.selectedTab.value == 0
+            //             ? controller.explorePosts[index]
+            //             : controller.insightsPosts[index];
+
+            //         return GestureDetector(
+            //           onTap: () {
+            //             final postModel = PostModel(
+            //               category: post["category"] ?? "",
+            //               title: post["title"] ?? "",
+            //               imageUrl: post["imageUrl"] ?? "",
+            //               timeAgo: post["timeAgo"] ?? "",
+            //               isFeatured: post["isFeatured"] ?? false,
+            //               isForYou: post["isForYou"] ?? false,
+            //               isEconomics: post["isEconomics"] ?? false,
+            //               profileImageUrl: post["profileImageUrl"] ?? "",
+            //               username: post["username"] ?? "",
+            //             );
+
+            //             postController.setPost(postModel);
+            //             Get.to(() => PostDetailScreen());
+            //           },
+
+            //           // onTap: () {
+
+            //           //   postController.setPost(post as PostModel);
+            //           //   Get.toNamed('postDetailsScreen');
+            //           // },
+            //           // child: PostCard(
+            //           //   category: post["category"],
+            //           //   title: post["title"],
+            //           //   imageUrl: post["imageUrl"],
+            //           //   timeAgo: post["timeAgo"],
+            //           //   isFeatured: post["isFeatured"] ?? false,
+            //           //   isForYou: post["isForYou"] ?? false,
+            //           //   isEconomics: post["isEconomics"] ?? false,
+            //           //   profileImageUrl: post["profileImageUrl"],
+            //           //   username: post["username"],
+            //           // ),
+            //         );
+            //       },
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),

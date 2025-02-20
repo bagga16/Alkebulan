@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 class SearchBarWidget extends StatelessWidget {
   const SearchBarWidget({super.key});
@@ -33,12 +34,16 @@ class SearchBarWidget extends StatelessWidget {
                   style: TextStyle(color: Color.fromRGBO(154, 154, 154, 1)),
                 ),
               ),
-              Image.asset(
-                'assets/images/search.png',
-                // height: screenHeight * 0.04,
-                // //width: screenWidth * 0.1,
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed('aukaGPT');
+                },
+                child: Image.asset(
+                  'assets/images/search.png',
+                  // height: screenHeight * 0.04,
+                  // //width: screenWidth * 0.1,
+                ),
               ),
-              //Icon(Icons.trending_up, color: Colors.blue),
             ],
           ),
         ),

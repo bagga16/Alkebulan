@@ -30,7 +30,10 @@ class ContributorProfileScreen extends StatelessWidget {
                     onTap: () => Get.back(),
                     child: Icon(Icons.arrow_back_rounded, color: Colors.black),
                   ),
-                  Icon(Icons.settings_outlined, color: Colors.black),
+                  GestureDetector(
+                      onTap: () => Get.toNamed('trendingScreen'),
+                      child:
+                          Icon(Icons.settings_outlined, color: Colors.black)),
                 ],
               ),
             ),

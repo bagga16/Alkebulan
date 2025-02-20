@@ -5,6 +5,7 @@ class CommentModel {
   int likes;
   int replies;
   bool isLiked;
+  String timeAgo;
 
   CommentModel({
     required this.username,
@@ -13,5 +14,6 @@ class CommentModel {
     required this.likes,
     required this.replies,
     this.isLiked = false,
+    required this.timeAgo,
   });
 }

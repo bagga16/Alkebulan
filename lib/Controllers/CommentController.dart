@@ -14,6 +14,7 @@ class CommentController extends GetxController {
             "South Africa is sitting on a ticking time bomb. If they don’t fix this soon, we might see protests.",
         likes: 114,
         replies: 31,
+        timeAgo: "Mon",
       ),
       CommentModel(
         username: "ZolaniSpeaks",
@@ -22,6 +23,7 @@ class CommentController extends GetxController {
             "The Arab Spring wasn’t just about bad leadership, it was about hopelessness.",
         likes: 192,
         replies: 48,
+        timeAgo: "Now",
       ),
       CommentModel(
         username: "Mzansi4All",
@@ -30,6 +32,7 @@ class CommentController extends GetxController {
             "We don’t need a revolution. We need leaders who care about fixing corruption and unemployment.",
         likes: 132,
         replies: 14,
+        timeAgo: "30 min",
       ),
       CommentModel(
         username: "FreedomFighter92",
@@ -38,11 +41,25 @@ class CommentController extends GetxController {
             "A revolution is not a matter of 'if' but 'when'. Fix the issues now or prepare for consequences.",
         likes: 81,
         replies: 30,
+        timeAgo: "2h ago",
       ),
     ]);
   }
 
-  // Toggle like on a comment
+  void addComment(String commentText) {
+    comments.insert(
+      0,
+      CommentModel(
+        username: "User123",
+        profileImage: "assets/images/user4.png",
+        comment: commentText,
+        likes: 0,
+        replies: 0,
+        timeAgo: "Now",
+      ),
+    );
+  }
+
   void toggleLike(int index) {
     comments[index].isLiked = !comments[index].isLiked;
     comments[index].isLiked ? comments[index].likes++ : comments[index].likes--;
