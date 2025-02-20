@@ -93,11 +93,16 @@ class ContributorProfileScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
-                    "See All",
-                    style: TextStyle(
-                      fontSize: screenWidth * 0.04,
-                      color: Colors.blue,
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('latestArticles');
+                    },
+                    child: Text(
+                      "See All",
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.04,
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
                 ],

@@ -1,12 +1,13 @@
 import 'package:alkebulan/App%20Screeens/Auth%20Screens/ReferAFriendScreen.dart';
 import 'package:alkebulan/App%20Screeens/Auth%20Screens/SignUp.dart';
 import 'package:alkebulan/App%20Screeens/Home/HomeScreen.dart';
+import 'package:alkebulan/App%20Screeens/Lates%20Articles/LatestArticlesScreen.dart';
 import 'package:alkebulan/App%20Screeens/OnBoarding/OnBoarding2.dart';
 import 'package:alkebulan/App%20Screeens/OnBoarding/Onboarding1.dart';
 import 'package:alkebulan/App%20Screeens/OnBoarding/PaymentScreen.dart';
 import 'package:alkebulan/App%20Screeens/User%20Profile%20&%20Settings/SettingsScreen.dart';
 import 'package:alkebulan/Common%20Components/BottomBar.dart';
-import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 class AppRoutes {
@@ -19,6 +20,8 @@ class AppRoutes {
   static const String signup = '/signup';
   static const String home = '/home';
   static const String settings = '/settings';
+
+  static const String latestArticles = '/latestArticles';
 
   static final routes = [
     GetPage(
@@ -38,5 +41,6 @@ class AppRoutes {
     GetPage(name: bnb, page: () => DBNBPage()),
     GetPage(name: home, page: () => HomeScreen()),
     GetPage(name: settings, page: () => SettingsScreen()),
+    GetPage(name: latestArticles, page: () => LatestArticlesScreen()),
   ];
 }

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
   var selectedTab = 1.obs; // Default: "Bookmarks" tab
-
+  var uploads = <Like>[].obs;
   var bookmarks = <Bookmark>[
     Bookmark(
       title: "Fix South Africa or Face Arab Spring-Like Revolt",

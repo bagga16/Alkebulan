@@ -96,6 +96,7 @@ class LatestArticleCard extends StatelessWidget {
               ),
             ],
           ),
+          Divider()
         ],
       ),
     );

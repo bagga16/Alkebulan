@@ -17,7 +17,10 @@ class ProfileScreen extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(
-                left: screenWidth * 0.05, top: screenHeight * 0.07),
+              left: screenWidth * 0.05,
+              top: screenHeight * 0.08,
+              bottom: screenHeight * 0.007,
+            ),
             child: Row(
               children: [
                 Text(
@@ -60,10 +63,19 @@ class ProfileScreen extends StatelessWidget {
           SizedBox(height: MediaQueryHelper.height(context, 0.02)),
 
           // Content Area
+          // Expanded(child: Obx(() {
+          //   return controller.selectedTab.value == 1
+          //       ? _bookmarksTab()
+          //       : _likesTab();
+          // })),
           Expanded(child: Obx(() {
-            return controller.selectedTab.value == 1
-                ? _bookmarksTab()
-                : _likesTab();
+            if (controller.selectedTab.value == 0) {
+              return _uploadsTab();
+            } else if (controller.selectedTab.value == 1) {
+              return _bookmarksTab();
+            } else {
+              return _likesTab();
+            }
           })),
         ],
       ),
@@ -93,6 +105,37 @@ class ProfileScreen extends StatelessWidget {
             )),
       ),
     );
+  }
+
+// Uploads Tab
+  Widget _uploadsTab() {
+    return Obx(() {
+      if (controller.uploads.isEmpty) {
+        return Center(
+          child: Text(
+            "No uploads yet,\nShare your first upload to get started",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQueryHelper.fontSize(Get.context!, 0.045),
+              color: const Color.fromARGB(255, 105, 103, 103),
+            ),
+          ),
+        );
+      } else {
+        return GridView.builder(
+          padding: EdgeInsets.all(MediaQueryHelper.width(Get.context!, 0.03)),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 7,
+            mainAxisSpacing: 12,
+          ),
+          itemCount: controller.uploads.length,
+          itemBuilder: (context, index) {
+            return LikeItem(like: controller.uploads[index]);
+          },
+        );
+      }
+    });
   }
 
   Widget _bookmarksTab() {
