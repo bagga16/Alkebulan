@@ -323,10 +323,11 @@ class PostCommentsScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.send, color: Colors.blue),
             onPressed: () {
-              if (commentController.text.trim().isNotEmpty) {
-                controller.addComment(commentController.text.trim());
-                commentController.clear();
-              }
+              commentController.clear();
+              // if (commentController.text.trim().isNotEmpty) {
+              //   controller.addComment(commentController.text.trim());
+              //   commentController.clear();
+              // }
             },
           ),
         ],

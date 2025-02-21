@@ -1,3 +1,4 @@
+import 'package:alkebulan/App%20Screeens/Home/DrawerView.dart';
 import 'package:alkebulan/App%20Screeens/Home/PostDetails/PostDetailsScreen.dart';
 import 'package:alkebulan/App%20Widgets/FeaturedUsers.dart';
 import 'package:alkebulan/App%20Widgets/HomeTabBar.dart';
@@ -6,17 +7,29 @@ import 'package:alkebulan/Controllers/HomeController.dart';
 import 'package:alkebulan/Controllers/PostController.dart';
 import 'package:alkebulan/Models/PostModel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   final HomeController controller = Get.put(HomeController());
+
   final PostController postController = Get.put(PostController());
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: DrawerView(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -72,7 +85,18 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: screenHeight * 0.01),
 
             // Tab Bar
-            TabBarWidget(),
+            Row(
+              children: [
+                SizedBox(width: screenWidth * 0.05),
+                GestureDetector(
+                  onTap: () {
+                    _scaffoldKey.currentState!.openDrawer();
+                  },
+                  child: SvgPicture.asset('assets/icons/equal.svg'),
+                ),
+                TabBarWidget(),
+              ],
+            ),
             SizedBox(height: screenHeight * 0.01),
 
             // Featured Users (Only in Insights)

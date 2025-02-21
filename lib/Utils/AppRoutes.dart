@@ -1,4 +1,5 @@
 import 'package:alkebulan/App%20Screeens/Auka%20GPT/Auka%20GPT%20Screen.dart';
+import 'package:alkebulan/App%20Screeens/Auth%20Screens/LoginScreen.dart';
 import 'package:alkebulan/App%20Screeens/Auth%20Screens/ReferAFriendScreen.dart';
 import 'package:alkebulan/App%20Screeens/Auth%20Screens/SignUp.dart';
 import 'package:alkebulan/App%20Screeens/Home/HomeScreen.dart';
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String RFA = '/RFA';
   static const String bnb = '/bnb';
   static const String signup = '/signup';
+  static const String login = '/login';
   static const String home = '/home';
   static const String settings = '/settings';
 
@@ -45,6 +47,10 @@ class AppRoutes {
       page: () => PaymentScreen(),
     ),
     GetPage(name: signup, page: () => SignUpScreen()),
+    GetPage(
+      name: login,
+      page: () => LoginScreen(),
+    ),
     GetPage(name: RFA, page: () => ReferFriendScreen()),
     GetPage(name: bnb, page: () => DBNBPage()),
     GetPage(name: home, page: () => HomeScreen()),

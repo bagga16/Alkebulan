@@ -12,10 +12,6 @@ class TabBarWidget extends StatelessWidget {
     return Row(
       children: [
         SizedBox(width: screenWidth * 0.05),
-        SvgPicture.asset(
-          'assets/icons/equal.svg',
-        ), // Replace with actual icon
-        SizedBox(width: screenWidth * 0.03),
 
         // Explore Tab
         GestureDetector(
