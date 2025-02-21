@@ -152,58 +152,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-
-            // // Posts List (Explore or Insights)
-            // Expanded(
-            //   child: Obx(
-            //     () => ListView.builder(
-            //       itemCount: controller.selectedTab.value == 0
-            //           ? controller.explorePosts.length
-            //           : controller.insightsPosts.length,
-            //       itemBuilder: (context, index) {
-            //         final post = controller.selectedTab.value == 0
-            //             ? controller.explorePosts[index]
-            //             : controller.insightsPosts[index];
-
-            //         return GestureDetector(
-            //           onTap: () {
-            //             final postModel = PostModel(
-            //               category: post["category"] ?? "",
-            //               title: post["title"] ?? "",
-            //               imageUrl: post["imageUrl"] ?? "",
-            //               timeAgo: post["timeAgo"] ?? "",
-            //               isFeatured: post["isFeatured"] ?? false,
-            //               isForYou: post["isForYou"] ?? false,
-            //               isEconomics: post["isEconomics"] ?? false,
-            //               profileImageUrl: post["profileImageUrl"] ?? "",
-            //               username: post["username"] ?? "",
-            //             );
-
-            //             postController.setPost(postModel);
-            //             Get.to(() => PostDetailScreen());
-            //           },
-
-            //           // onTap: () {
-
-            //           //   postController.setPost(post as PostModel);
-            //           //   Get.toNamed('postDetailsScreen');
-            //           // },
-            //           // child: PostCard(
-            //           //   category: post["category"],
-            //           //   title: post["title"],
-            //           //   imageUrl: post["imageUrl"],
-            //           //   timeAgo: post["timeAgo"],
-            //           //   isFeatured: post["isFeatured"] ?? false,
-            //           //   isForYou: post["isForYou"] ?? false,
-            //           //   isEconomics: post["isEconomics"] ?? false,
-            //           //   profileImageUrl: post["profileImageUrl"],
-            //           //   username: post["username"],
-            //           // ),
-            //         );
-            //       },
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class TopStoriesWidget extends StatelessWidget {
   final List<Map<String, String>> topStories = [
@@ -10,6 +9,8 @@ class TopStoriesWidget extends StatelessWidget {
       "time": "1h"
     }
   ];
+
+  TopStoriesWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

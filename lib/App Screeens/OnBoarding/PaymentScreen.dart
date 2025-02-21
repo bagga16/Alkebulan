@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class PaymentScreen extends StatelessWidget {
   final PaymentController controller = Get.put(PaymentController());
 
+  PaymentScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

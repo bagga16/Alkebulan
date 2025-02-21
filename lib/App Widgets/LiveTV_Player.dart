@@ -6,6 +6,8 @@ import 'package:video_player/video_player.dart';
 class LiveTVPlayer extends StatelessWidget {
   final LiveTVController controller = Get.find<LiveTVController>();
 
+  LiveTVPlayer({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

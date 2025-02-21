@@ -12,16 +12,16 @@ class DrawerView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: screenHeight * 0.07),
+          SizedBox(height: screenHeight * 0.14),
 
           // Menu Icon
           Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
             child:
-                Icon(Icons.menu, color: Colors.black, size: screenWidth * 0.06),
+                Icon(Icons.menu, color: Colors.blue, size: screenWidth * 0.06),
           ),
 
-          SizedBox(height: screenHeight * 0.03),
+          SizedBox(height: screenHeight * 0.07),
 
           // Filter Text
           Padding(
@@ -31,12 +31,12 @@ class DrawerView extends StatelessWidget {
               style: TextStyle(
                 fontSize: screenWidth * 0.045,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Color.fromRGBO(134, 133, 133, 1),
               ),
             ),
           ),
 
-          SizedBox(height: screenHeight * 0.02),
+          SizedBox(height: screenHeight * 0.06),
 
           // Read Option
           Padding(
@@ -56,9 +56,9 @@ class DrawerView extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: screenHeight * 0.015),
-
-          // Watch Option
+          SizedBox(height: screenHeight * 0.04),
+          Divider(),
+          SizedBox(height: screenHeight * 0.04),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
             child: GestureDetector(
@@ -70,16 +70,16 @@ class DrawerView extends StatelessWidget {
                 style: TextStyle(
                   fontSize: screenWidth * 0.04,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black, // Inactive Color
+                  color: Color.fromRGBO(134, 133, 133, 1),
                 ),
               ),
             ),
           ),
 
-          SizedBox(height: screenHeight * 0.02),
+          SizedBox(height: screenHeight * 0.04),
 
           // Divider
-          Divider(thickness: 1, color: Colors.grey.withOpacity(0.3)),
+          Divider()
         ],
       ),
     );

@@ -10,6 +10,8 @@ class ReelsScreen extends StatelessWidget {
   final ReelsController controller = Get.put(ReelsController());
 
   final LiveTVController liveTVController = Get.put(LiveTVController());
+
+  ReelsScreen({super.key});
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

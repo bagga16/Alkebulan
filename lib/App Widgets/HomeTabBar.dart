@@ -1,10 +1,11 @@
 import 'package:alkebulan/Controllers/HomeController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class TabBarWidget extends StatelessWidget {
   final HomeController controller = Get.find<HomeController>();
+
+  TabBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

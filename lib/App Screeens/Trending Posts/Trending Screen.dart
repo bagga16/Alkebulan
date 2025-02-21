@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class TrendingScreen extends StatelessWidget {
   final TrendingController controller = Get.put(TrendingController());
 
+  TrendingScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

@@ -4,6 +4,8 @@ import 'package:alkebulan/App%20Widgets/TopStoriesWidget.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

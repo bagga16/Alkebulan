@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 class OnboardingTwo extends StatelessWidget {
   final OnboardingController controller = Get.find<OnboardingController>();
 
+  OnboardingTwo({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

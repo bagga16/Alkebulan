@@ -3,7 +3,7 @@ import '../Models/PostModel.dart';
 
 class TrendingPostCard extends StatelessWidget {
   final PostModel post;
-  const TrendingPostCard({Key? key, required this.post}) : super(key: key);
+  const TrendingPostCard({super.key, required this.post});
 
   @override
   Widget build(BuildContext context) {

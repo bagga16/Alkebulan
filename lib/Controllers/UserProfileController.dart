@@ -3,7 +3,7 @@ import 'package:alkebulan/Models/LikeModel.dart';
 import 'package:get/get.dart';
 
 class ProfileController extends GetxController {
-  var selectedTab = 1.obs; // Default: "Bookmarks" tab
+  var selectedTab = 1.obs;
   var uploads = <Like>[].obs;
   var bookmarks = <Bookmark>[
     Bookmark(

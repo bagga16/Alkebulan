@@ -1,12 +1,12 @@
-import 'package:alkebulan/Common%20Components/AppText.dart';
 import 'package:alkebulan/Common%20Components/CommonButton.dart';
 import 'package:alkebulan/Controllers/OnBoardingController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class OnboardingOne extends StatelessWidget {
   final OnboardingController controller = Get.put(OnboardingController());
+
+  OnboardingOne({super.key});
 
   @override
   Widget build(BuildContext context) {

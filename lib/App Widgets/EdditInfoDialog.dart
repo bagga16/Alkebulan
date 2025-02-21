@@ -8,6 +8,8 @@ class EditInfoDialog extends StatelessWidget {
   final TextEditingController displayNameController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
 
+  EditInfoDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Dialog(

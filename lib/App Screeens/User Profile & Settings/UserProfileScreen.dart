@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class ProfileScreen extends StatelessWidget {
   final ProfileController controller = Get.put(ProfileController());
 
+  ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

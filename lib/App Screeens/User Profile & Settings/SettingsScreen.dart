@@ -9,6 +9,8 @@ import '../../App Widgets/Seetting Section & Items.dart';
 class SettingsScreen extends StatelessWidget {
   final SettingsController controller = Get.put(SettingsController());
 
+  SettingsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 class BookmarkItem extends StatefulWidget {
   final Bookmark bookmark;
 
-  BookmarkItem({required this.bookmark});
+  const BookmarkItem({super.key, required this.bookmark});
 
   @override
   _BookmarkItemState createState() => _BookmarkItemState();

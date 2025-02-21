@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class SearchBarWidget extends StatelessWidget {
@@ -40,8 +39,6 @@ class SearchBarWidget extends StatelessWidget {
                 },
                 child: Image.asset(
                   'assets/images/search.png',
-                  // height: screenHeight * 0.04,
-                  // //width: screenWidth * 0.1,
                 ),
               ),
             ],

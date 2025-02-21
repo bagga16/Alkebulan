@@ -3,7 +3,6 @@ import 'package:alkebulan/Controllers/ContributorController.dart';
 import 'package:alkebulan/Utils/Mediaquery%20Sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LatestArticlesScreen extends StatefulWidget {
   const LatestArticlesScreen({super.key});

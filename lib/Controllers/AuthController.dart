@@ -6,7 +6,7 @@ class AuthController extends GetxController {
   var passwordController = TextEditingController();
   var isChecked = false.obs;
 
-  void SignUp() async {
+  void signUp() async {
     if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
       Get.toNamed('/RFA');
     } else {

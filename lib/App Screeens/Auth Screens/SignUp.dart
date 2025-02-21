@@ -80,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
                         : Colors.grey.shade400,
                     onPressed: controller.isChecked.value
                         ? () {
-                            controller.SignUp();
+                            controller.signUp();
                           }
                         : null,
                   )),

@@ -6,6 +6,8 @@ import '../Controllers/CommentController.dart';
 class CommentBottomSheet extends StatelessWidget {
   final CommentController commentController = Get.put(CommentController());
 
+  CommentBottomSheet({super.key});
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
